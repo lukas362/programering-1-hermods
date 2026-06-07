@@ -21,11 +21,15 @@ def lägg_till_kontakt():
     telefonnummer.append(nummer)
     print("Kontakt tillagd!\n")
 
-# Definerar hur "alternativ 2" fungerar
+# Definerar hur "alternativ 2" fungerar, hittade denna "lösningen" på w3schools.com under avsnittet "Python Lists"
 def visa_kontakter():
     print("Visa kontakter: \n")
-    for namn_och_nummer in range(len(namn)):
+    for namn_och_nummer in range(len(namn)): # går igenom alla namn i listan och skriver ut det tillsammans med det telefonnummer som hör ihop
         print(f"{namn[namn_och_nummer]} - {telefonnummer[namn_och_nummer]} \n") # namn_och_nummer = skriver ut namnet och telefonnumret som hör ihop
+
+#def sök_efter_kontakt():
+
+#def ta_bort_kontakt():
 
 # Denna kod delen låter en välja mellan de 5 olika alternativ ovan och sedan utföra den processen + fel medelande om man använder sig av bokstäver eller siffor utanför 1-5
 while True:
@@ -45,10 +49,12 @@ while True:
         visa_kontakter()
 
     elif alternativ == 3:
+#        sök_efter_kontakt()
         pass
 
 
     elif alternativ == 4:
+#        ta_bort_kontakt()
         pass
 
     elif alternativ == 5:
