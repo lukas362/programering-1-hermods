@@ -27,7 +27,14 @@ def visa_kontakter():
     for namn_och_nummer in range(len(namn)): # går igenom alla namn i listan och skriver ut det tillsammans med det telefonnummer som hör ihop
         print(f"{namn[namn_och_nummer]} - {telefonnummer[namn_och_nummer]} \n") # namn_och_nummer = skriver ut namnet och telefonnumret som hör ihop
 
-#def sök_efter_kontakt():
+# Definerat hur "alternativ 3" fungerar. Söker efter namn inom listan
+def sök_efter_kontakt():
+    sök_kontakt = input("Sök efter kontakt personen: \n")
+    if sök_kontakt in namn: # kollar om det sökta namnet finns i listan
+        index = namn.index(sök_kontakt) # letar efter indexet som hör ihop med det sökta namnet 
+        print(f"{namn[index]} - {telefonnummer[index]} \n")
+    else:
+        print("Kontakten finns inte i listan.\n")
 
 #def ta_bort_kontakt():
 
@@ -49,8 +56,7 @@ while True:
         visa_kontakter()
 
     elif alternativ == 3:
-#        sök_efter_kontakt()
-        pass
+        sök_efter_kontakt()
 
 
     elif alternativ == 4:
