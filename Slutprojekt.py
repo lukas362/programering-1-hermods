@@ -13,7 +13,7 @@ def menu():
     print("[4] Ta bort kontakt")
     print("[5] Avsluta programmet \n")
 
-# Definerar hur "alternativ 1" fungerar
+# Definerar hur "alternativ 1" fungerar. Simple program som lägger till namn och telefonnummer i listorna
 def lägg_till_kontakt():
     n = input("Ange kontaktens namn: \n")
     nummer = input("Ange kontaktens telefonnummer: \n")
@@ -27,16 +27,25 @@ def visa_kontakter():
     for namn_och_nummer in range(len(namn)): # går igenom alla namn i listan och skriver ut det tillsammans med det telefonnummer som hör ihop
         print(f"{namn[namn_och_nummer]} - {telefonnummer[namn_och_nummer]} \n") # namn_och_nummer = skriver ut namnet och telefonnumret som hör ihop
 
-# Definerat hur "alternativ 3" fungerar. Söker efter namn inom listan
+# Definerat hur "alternativ 3" fungerar. Söker efter namn inom listan, stödjer inte delvis sökning i dagsläget
 def sök_efter_kontakt():
     sök_kontakt = input("Sök efter kontakt personen: \n")
     if sök_kontakt in namn: # kollar om det sökta namnet finns i listan
-        index = namn.index(sök_kontakt) # letar efter indexet som hör ihop med det sökta namnet 
-        print(f"{namn[index]} - {telefonnummer[index]} \n")
+        sök_efter_person = namn.index(sök_kontakt) # letar efter indexet som hör ihop med det sökta namnet 
+        print(f"{namn[sök_efter_person]} - {telefonnummer[sök_efter_person]} \n")
     else:
         print("Kontakten finns inte i listan.\n")
 
-#def ta_bort_kontakt():
+# Definerat hur "alternativ 4" fungerar. Tar bort kontakten från listorna som man skriver in
+def ta_bort_kontakt():
+    ta_bort = input("Vilken kontakt vill du ta bort? \n")
+    if ta_bort in namn:
+        borta = namn.index(ta_bort) # letar efter indexet som hör ihop med det sökta namnet
+        namn.pop(borta) # ta bort namnet
+        telefonnummer.pop(borta) # ta bort telefonnumret som hör ihop med namnet
+        print(f"{ta_bort} - {telefonnummer[borta]}, blev borttagna \n")
+    else:
+        print("Denna kontakt finns inte eller kunnde inte bli borttagen.\n")
 
 # Denna kod delen låter en välja mellan de 5 olika alternativ ovan och sedan utföra den processen + fel medelande om man använder sig av bokstäver eller siffor utanför 1-5
 while True:
@@ -58,10 +67,8 @@ while True:
     elif alternativ == 3:
         sök_efter_kontakt()
 
-
     elif alternativ == 4:
-#        ta_bort_kontakt()
-        pass
+        ta_bort_kontakt()
 
     elif alternativ == 5:
         print("Du valde att avsluta programmet. Tack för att du använde det\n")
