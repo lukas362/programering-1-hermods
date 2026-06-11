@@ -68,3 +68,40 @@ while True:
         break
     else:
         print("Vänligen välj ett giltigt alternativ mellan 1-5.\n")
+
+
+# Testning:
+
+#Testfall 1: Lägga till en kontakt
+# Steg: Välj alternativ 1, ange namn och nummer
+# Resultat: kontakten blev tillagd i listorna
+
+# Testfall 2: Visa alla kontakter
+# Steg: Lägg till två kontakter, välj sedan alternativ 2
+# Resultat: Båda kontakterna skrivs ut med namn och nummer
+
+# Testfall 3: Söka efter en kontakt som finns
+# Steg: Lägg till "Lukas", välj alternativ 3, sök på "Lukas"
+# Resultat: "Lukas - 123-456789" skrivs ut
+
+# Testfall 4: Söka efter en kontakt som inte finns
+# Steg: Välj alternativ 3, sök på "Erik"
+# Resultat: "Kontakten finns inte i listan."
+
+# Testfall 5: Ta bort en kontakt
+# Steg: Välj alternativ 4, skriv in "Lukas"
+# Resultat: "Lukas - 123-456789, blev borttagen"
+
+# Kort dokumentation:
+
+# Jag har gjort ett registerprogram som har 5 olika funktioner:
+# "Lägg till en kontakt"
+# "Visa alla kontakter"
+# "Sök efter kontakt"
+# "Ta bort kontakt"
+# "Avsluta programmet"
+# Dessa fem olika funktionerna gör som namnet säger att dem gör. Informationen man skriver in blir sparande i list [namn] och [telefonnummer]. 
+
+# Reflektioner:
+
+# Programmet fungerar väll. Men har inte lyckats lista ut hur jag ska få "delvis matchning" när man söker efter ett namn, men lycakdes med hel machning. Men utöver det så gick detmesta bra. Fick ta lite hjälp fårn w3schools när jag skulle lista ut hur man går igenom alla namn i en lista samt hur man gör en meny.
