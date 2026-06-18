@@ -11,7 +11,8 @@ def menu():
     print("[2] Visa alla kontakter")
     print("[3] Sök efter kontakt")
     print("[4] Ta bort kontakt")
-    print("[5] Avsluta programmet \n")
+    print("[5] Visa statistik")
+    print("[6] Avsluta programmet \n")
 
 # Definerar hur "alternativ 1" fungerar. Simple program som lägger till namn och telefonnummer i listorna
 def lägg_till_kontakt():
@@ -49,7 +50,24 @@ def ta_bort_kontakt():
     else:
         print("Denna kontakt finns inte eller kunnde inte bli borttagen.\n")
 
-# Denna kod delen låter en välja mellan de 5 olika alternativ ovan och sedan utföra den processen + fel medelande om man använder sig av bokstäver eller siffor utanför 1-5
+# Definerat hur "alternativ 5" fungerar. Visar statistik om kontakterna i listan
+def visa_statistik():
+    
+    # Räknar ut genomsnittet namn längd
+    total = 0
+    for n in namn:                  # går igenom varje namn
+        total = total + len(n)      # lägger till längden på varje namn
+    genomsnitt = total / len(namn)
+    print(f"Genomsnittlig längd på namn: {genomsnitt:.1f} tecken \n")
+
+    # Hittar det längsta namnet
+    längsta = namn[0]               # börjar med första namnet
+    for n in namn:                  # går igenom varje namn
+        if len(n) > len(längsta):   # säger vilken namn som är längre
+            längsta = n             # nyaste längsta namn
+    print(f"Längsta namnet är: {längsta} \n")
+
+# Denna kod delen låter en välja mellan de 5 olika alternativ ovan och sedan utföra den processen + fel medelande om man använder sig av bokstäver eller siffor utanför 1-6
 while True:
     menu()
     try:
@@ -73,6 +91,9 @@ while True:
         ta_bort_kontakt()
 
     elif alternativ == 5:
+        visa_statistik()
+
+    elif alternativ == 6:
         print("Du valde att avsluta programmet. Tack för att du använde det\n")
         break
     else:
@@ -103,14 +124,21 @@ while True:
 
 # Kort dokumentation:
 
-# Jag har gjort ett registerprogram som har 5 olika funktioner:
+# Jag har gjort ett registerprogram som har 6 olika funktioner:
 # "Lägg till en kontakt"
 # "Visa alla kontakter"
 # "Sök efter kontakt"
 # "Ta bort kontakt"
+# "Visa statistik"
 # "Avsluta programmet"
-# Dessa fem olika funktionerna gör som namnet säger att dem gör. Informationen man skriver in blir sparande i list [namn] och [telefonnummer]. 
+# Dessa fem olika funktionerna gör som namnet säger att dem gör. Informationen man skriver in blir sparande i list [namn] och [telefonnummer]
 
 # Reflektioner:
 
-# Programmet fungerar väll. Men har inte lyckats lista ut hur jag ska få "delvis matchning" när man söker efter ett namn, men lycakdes med hel machning. Men utöver det så gick detmesta bra. Fick ta lite hjälp fårn w3schools när jag skulle lista ut hur man går igenom alla namn i en lista samt hur man gör en meny.
+# Programmet fungerar väll. Har lyckats få "delvis matching" att fungera när man söker efter ett namn, men lycakdes med hel machning. Men utöver det så gick detmesta bra. Fick ta lite hjälp fårn w3schools när jag skulle lista ut hur man går igenom alla namn i en lista samt hur man gör en meny
+
+# Etik och integritet:
+
+# Programmet sparar namn och telefonnummer i RAM-minnet (datorns arbetsminne), alltså inget sparas på din dator eller hårddisk
+
+# I nuläget uppstår inga GDPR-problem eftersom all data bara finns i minnet
