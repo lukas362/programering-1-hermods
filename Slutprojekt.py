@@ -27,13 +27,15 @@ def visa_kontakter():
     for namn_och_nummer in range(len(namn)): # går igenom alla namn i listan och skriver ut det tillsammans med det telefonnummer som hör ihop
         print(f"{namn[namn_och_nummer]} - {telefonnummer[namn_och_nummer]} \n") # namn_och_nummer = skriver ut namnet och telefonnumret som hör ihop
 
-# Definerat hur "alternativ 3" fungerar. Söker efter namn inom listan, stödjer inte delvis sökning i dagsläget
+# Definerat hur "alternativ 3" fungerar. Söker efter namn inom listan, stödjer delvis matchning
 def sök_efter_kontakt():
-    sök_kontakt = input("Sök efter kontakt personen: \n")
-    if sök_kontakt in namn: # kollar om det sökta namnet finns i listan
-        sök_efter_person = namn.index(sök_kontakt) # letar efter indexet som hör ihop med det sökta namnet 
-        print(f"{namn[sök_efter_person]} - {telefonnummer[sök_efter_person]} \n")
-    else:
+    sök_kontakt = input("Sök efter kontakt personen: \n").lower()
+    hittade = False                                  # antar att ingen kontakt finns från början, kommer crasha om den inte är med
+    for inventroy in range(len(namn)):               # loopar igenom alla namn i listan
+        if sök_kontakt in namn[inventroy].lower():   # kollar om sökordet finns inuti namnet
+            print(f"{namn[inventroy]} - {telefonnummer[inventroy]} \n")
+            hittade = True                           # felmeddelandet visas inte, så den behöver inte köra "if not hittade"
+    if not hittade:
         print("Kontakten finns inte i listan.\n")
 
 # Definerat hur "alternativ 4" fungerar. Tar bort kontakten från listorna som man skriver in
@@ -41,9 +43,9 @@ def ta_bort_kontakt():
     ta_bort = input("Vilken kontakt vill du ta bort? \n")
     if ta_bort in namn:
         borta = namn.index(ta_bort) # letar efter indexet som hör ihop med det sökta namnet
+        print(f"{namn[borta]} - {telefonnummer[borta]}, blev borttagna \n")
         namn.pop(borta) # ta bort namnet
         telefonnummer.pop(borta) # ta bort telefonnumret som hör ihop med namnet
-        print(f"{ta_bort} - {telefonnummer[borta]}, blev borttagna \n")
     else:
         print("Denna kontakt finns inte eller kunnde inte bli borttagen.\n")
 
@@ -79,23 +81,23 @@ while True:
 
 # Testning:
 
-#Testfall 1: Lägga till en kontakt
+#Test 1: Lägga till en kontakt
 # Steg: Välj alternativ 1, ange namn och nummer
 # Resultat: kontakten blev tillagd i listorna
 
-# Testfall 2: Visa alla kontakter
+# Test 2: Visa alla kontakter
 # Steg: Lägg till två kontakter, välj sedan alternativ 2
 # Resultat: Båda kontakterna skrivs ut med namn och nummer
 
-# Testfall 3: Söka efter en kontakt som finns
+# Test 3: Söka efter en kontakt som finns
 # Steg: Lägg till "Lukas", välj alternativ 3, sök på "Lukas"
 # Resultat: "Lukas - 123-456789" skrivs ut
 
-# Testfall 4: Söka efter en kontakt som inte finns
+# Test 4: Söka efter en kontakt som inte finns
 # Steg: Välj alternativ 3, sök på "Erik"
 # Resultat: "Kontakten finns inte i listan."
 
-# Testfall 5: Ta bort en kontakt
+# Test 5: Ta bort en kontakt
 # Steg: Välj alternativ 4, skriv in "Lukas"
 # Resultat: "Lukas - 123-456789, blev borttagen"
 
