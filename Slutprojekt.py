@@ -67,7 +67,7 @@ def visa_statistik():
             längsta = n             # nyaste längsta namn
     print(f"Längsta namnet är: {längsta} \n")
 
-# Denna kod delen låter en välja mellan de 5 olika alternativ ovan och sedan utföra den processen + fel medelande om man använder sig av bokstäver eller siffor utanför 1-6
+# Denna kod delen låter en välja mellan de 6 olika alternativ ovan och sedan utföra den processen + fel medelande om man använder sig av bokstäver eller siffor utanför 1-6
 while True:
     menu()
     try:
@@ -97,7 +97,7 @@ while True:
         print("Du valde att avsluta programmet. Tack för att du använde det\n")
         break
     else:
-        print("Vänligen välj ett giltigt alternativ mellan 1-5.\n")
+        print("Vänligen välj ett giltigt alternativ mellan 1-6.\n")
 
 
 # Testning:
